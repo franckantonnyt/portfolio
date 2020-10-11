@@ -111,10 +111,12 @@ export const Container = styled.div`
       padding: 0.2rem 1.6rem 1.1rem 1.6rem;
 
       .details-card-modal {
+        margin: 0;
         width: 100%;
         height: 30%;
         display: flex;
         margin-bottom: 5px;
+        text-align: center;
         align-items: center;
         justify-content: center;
         border-top: 1px solid rgba(44, 232, 213, 0.5);
@@ -122,16 +124,18 @@ export const Container = styled.div`
         .details-card-left {
           width: 50%;
           height: 100%;
+          padding: 5px;
           display: flex;
           align-items: center;
-          justify-content: center;
           margin-top: 0.5rem;
+          justify-content: center;
           border-right: 1px solid rgba(44, 232, 213, 0.5);
         }
 
         .details-card-right {
           width: 50%;
           height: 100%;
+          padding: 5px;
           display: flex;
           margin-top: 0.5rem;
           align-items: center;
@@ -139,14 +143,18 @@ export const Container = styled.div`
         }
 
         img {
-          width: 20%;
+          width: 30%;
           height: auto;
         }
 
         p {
-          height: auto;
+          height: 100%;
+          display: flex;
+          margin: 0 auto;
+          transition: 1s;
+          margin-left: 5px;
           color: whitesmoke;
-          font-size: 0.5rem;
+          font-size: 0.3rem;
           text-align: center;
           padding-bottom: 5px;
         }
@@ -178,6 +186,13 @@ export const Container = styled.div`
 
     .body-card-modal {
       padding: 0.2rem 1.6rem 2rem 1.6rem;
+    }
+
+    .details-card-modal {
+      p {
+        font-size: 1rem;
+        margin-top: 3px;
+      }
     }
   }
 `;

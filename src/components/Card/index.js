@@ -2,7 +2,16 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Card = ({ logo, projectName, iconOne, iconTwo, iconThree, iconFour }) => {
+const Card = ({
+  logo,
+  projectName,
+  iconOne,
+  iconTwo,
+  iconThree,
+  iconFour,
+  percentageThree,
+  percentageFour,
+}) => {
   return (
     <Container>
       <div className='background-card-modal'>
@@ -27,11 +36,11 @@ const Card = ({ logo, projectName, iconOne, iconTwo, iconThree, iconFour }) => {
           <div className='details-card-modal'>
             <div className='details-card-left'>
               <img src={iconThree} alt='Tecnologia Utilizada' />
-              <p>86%</p>
+              <p>{percentageThree}</p>
             </div>
             <div className='details-card-right'>
               <img src={iconFour} alt='Tecnologia Utilizada' />
-              <p>14%</p>
+              <p>{percentageFour}</p>
             </div>
           </div>
           <div className='details-card-description'></div>
