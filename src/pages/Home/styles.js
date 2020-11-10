@@ -87,8 +87,8 @@ export const Container = styled.div`
     }
 
     .child-card-container {
-      width: 8rem;
-      height: 12rem;
+      width: 9rem;
+      height: 14rem;
       display: flex;
       transition: 1s;
       position: absolute;

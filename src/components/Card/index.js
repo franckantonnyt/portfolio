@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ArrowDouble from '../../assets/icons/double-arrow.png';
+
 import { Container } from './styles';
 
 const Card = ({
@@ -11,6 +13,8 @@ const Card = ({
   iconFour,
   percentageThree,
   percentageFour,
+  descriptionProject,
+  gitHubRepository,
 }) => {
   return (
     <Container>
@@ -18,7 +22,6 @@ const Card = ({
         <div className='header-card-modal'>
           <div className='header-img-card'>
             <div className='header-details-card'>
-              <p>CDA</p>
               <img
                 className='img-first-child'
                 src={iconOne}
@@ -43,8 +46,19 @@ const Card = ({
               <p>{percentageFour}</p>
             </div>
           </div>
-          <div className='details-card-description'></div>
-          <div className='details-card-footer' />
+          <div className='details-card-description'>
+            <p>{descriptionProject}</p>
+          </div>
+          <div className='details-card-footer'>
+            <a
+              target='_blank'
+              className='button-details-link'
+              rel='noopener noreferrer'
+              href={gitHubRepository}
+            >
+              <img src={ArrowDouble} alt='Acessar' />
+            </a>
+          </div>
         </div>
       </div>
     </Container>

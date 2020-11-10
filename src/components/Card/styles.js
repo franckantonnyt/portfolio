@@ -2,21 +2,20 @@ import styled from 'styled-components';
 import CardModal from '../../assets/images/card-modal.png';
 
 export const Container = styled.div`
-  width: 13rem;
-  height: 21rem;
+  width: 14rem;
+  height: 23rem;
   display: flex;
   align-items: center;
   justify-content: center;
 
   .background-card-modal {
-    width: 8rem;
-    height: 12rem;
+    width: 9rem;
+    height: 14rem;
     background: url(${CardModal});
     transition: 1s;
     display: flex;
-    cursor: pointer;
     align-items: center;
-    background-size: 8rem;
+    background-size: 9rem;
     flex-direction: column;
     justify-content: center;
     filter: grayscale(100%);
@@ -49,16 +48,6 @@ export const Container = styled.div`
             rgba(34, 8, 43, 0.2),
             rgba(0, 0, 0, 0)
           );
-
-          p {
-            width: 100%;
-            height: auto;
-            color: whitesmoke;
-            font-size: 0.7rem;
-            text-align: center;
-            padding-bottom: 5px;
-            border-bottom: 1px solid rgba(44, 232, 213, 0.3);
-          }
 
           img {
             width: 75%;
@@ -156,6 +145,7 @@ export const Container = styled.div`
           color: whitesmoke;
           font-size: 0.3rem;
           text-align: center;
+          font-weight: normal;
           padding-bottom: 5px;
         }
       }
@@ -163,13 +153,42 @@ export const Container = styled.div`
       .details-card-description {
         width: 100%;
         height: 70%;
+        display: flex;
+        justify-content: center;
         border-top: 1px solid rgba(44, 232, 213, 0.5);
+
+        p {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          transition: 1s;
+          font-size: 3px;
+          padding: 0.2rem;
+          color: whitesmoke;
+          text-align: start;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 0.5rem;
+        }
       }
 
       .details-card-footer {
         width: 25%;
         height: 1px;
-        background-color: rgba(44, 232, 213, 0.5);
+        display: flex;
+        transition: 1s;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid rgba(44, 232, 213, 0.5);
+
+        .button-details-link {
+          height: 0%;
+          width: 100%;
+          display: flex;
+          margin-top: 2px;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
@@ -192,6 +211,43 @@ export const Container = styled.div`
       p {
         font-size: 1rem;
         margin-top: 3px;
+      }
+    }
+
+    .details-card-description {
+      p {
+        padding: 0.5rem;
+        font-size: 0.5rem;
+        line-height: 0.7rem;
+      }
+    }
+
+    .details-card-footer {
+      height: 30px;
+      transition: 1s;
+      cursor: pointer;
+
+      .button-details-link {
+        opacity: 0;
+        transition: 0.5s;
+      }
+    }
+
+    .body-card-modal:hover {
+      .details-card-footer {
+        .button-details-link {
+          opacity: 1;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
       }
     }
   }
