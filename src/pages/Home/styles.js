@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-import backgroundGrass from '../../assets/images/background-grama.png';
+import backgroundGrass from '../../assets/images/background-grama2.png';
+import PerfilPessoa2 from '../../assets/images/backgroundProfile1.png';
+import PerfilPessoa from '../../assets/images/backgroundProfile2.png';
 
 export const Container = styled.div`
   display: flex;
@@ -10,25 +12,25 @@ export const Container = styled.div`
     opacity: 1;
     display: flex;
     align-items: center;
-    background-size: cover;
     justify-content: center;
+    background: url(${backgroundGrass});
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background: url(${backgroundGrass});
+    background-size: 100%;
   }
 
   .field-marking {
     display: flex;
-    animation: sizeDrag 1.5s;
+    animation: ${(props) => props.showAnimationPort && 'sizeDrag 1.5s'};
   }
 
   .field-marking-left {
-    width: 0%;
+    width: ${(props) => (props.showAnimationPort ? '0%' : '100%')};
     height: 100%;
     display: flex;
     align-items: center;
-    animation: dragSidesLeft 1.5s;
+    animation: ${(props) => props.showAnimationPort && 'dragSidesLeft 1.5s'};
     justify-content: space-between;
 
     .field-marking-area-left {
@@ -37,7 +39,7 @@ export const Container = styled.div`
     }
 
     .field-marking-center-left {
-      width: 200px;
+      width: 185px;
       height: 300px;
       border-top: 1.5px solid #fff;
       border-left: 1.5px solid #fff;
@@ -48,12 +50,12 @@ export const Container = styled.div`
 
   .field-marking-center {
     opacity: 1;
-    width: 100%;
+    width: ${(props) => (props.showAnimationPort ? '100%' : '0%')};
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: dragCenter 1.5s;
+    animation: ${(props) => props.showAnimationPort && 'dragCenter 1.5s'};
     background-image: linear-gradient(
       360deg,
       rgba(0, 0, 0, 0.9) 0%,
@@ -77,11 +79,68 @@ export const Container = styled.div`
           width: 98%;
           height: 98%;
           border-radius: 100rem;
-          border: 0.5px solid #262626;
           box-shadow: 10px 5px 5px #8320a4;
           border-left: 0.1px solid #8320a4;
           border-bottom: 0.1px solid #8320a4;
           background-image: linear-gradient(330deg, #000000 0%, #262626 80%);
+
+          .img-person-perfil {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-radius: 100rem;
+            justify-content: center;
+
+            background: url(${PerfilPessoa});
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 45%;
+
+            .img-profile-one {
+              opacity: 0;
+              width: 100%;
+              height: 100%;
+              border-radius: 100rem;
+              background: url(${PerfilPessoa2});
+              
+              background-position: center;
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: 60%;
+            }
+
+            .img-profile-one {
+              animation: hideImgOne 1s ease-in-out;
+              opacity: 0;
+              @keyframes hideImgOne {
+                0% {
+                  opacity: 1;
+                }
+
+                100% {
+                  opacity: 0;
+                }
+              }
+            }
+
+            :hover {
+              .img-profile-one {
+                animation: showImgOne 1.3s ease-in-out;
+                opacity: 1;
+                @keyframes showImgOne {
+                  0% {
+                    opacity: 0;
+                  }
+
+                  100% {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -147,11 +206,11 @@ export const Container = styled.div`
   }
 
   .field-marking-right {
-    width: 0%;
+    width: ${(props) => (props.showAnimationPort ? '0%' : '100%')};
     height: 100%;
     display: flex;
     align-items: center;
-    animation: dragSidesRight 1.5s;
+    animation: ${(props) => props.showAnimationPort && 'dragSidesRight 1.5s'};
     justify-content: space-between;
 
     .field-marking-area-right {
@@ -160,13 +219,33 @@ export const Container = styled.div`
     }
 
     .field-marking-center-right {
-      width: 200px;
+      width: 185px;
       height: 300px;
       border-top: 1.5px solid #fff;
       border-right: 1.5px solid #fff;
       border-bottom: 1.5px solid #fff;
       border-radius: 0px 150px 150px 0px;
     }
+  }
+
+  .loaging-play-animation {
+    width: 20rem;
+    opacity: 0.4;
+    height: 20rem;
+    display: flex;
+    cursor: pointer;
+    transition: 0.5s;
+    position: absolute;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    box-shadow: 0px 0px 20px 20px black;
+    visibility: ${(props) => (props.showAnimationPort ? 'hidden' : 'visible')};
+  }
+
+  .loaging-play-animation:hover {
+    opacity: 0.6;
   }
 
   @keyframes dragCenter {
